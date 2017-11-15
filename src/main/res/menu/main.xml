@@ -1,0 +1,34 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Main" >
+    <item
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="@string/borrar"
+        app:showAsAction="ifRoom" />
+    <item
+    android:id="@+id/importar"
+    android:orderInCategory="1"
+    android:title="@string/action_settings2"
+    app:showAsAction="never" />
+    <item
+        android:id="@+id/exportar"
+        android:orderInCategory="2"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/facebook"
+        android:icon="@android:drawable/ic_menu_save"
+        android:orderInCategory="3"
+        android:title="@string/face"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/creditos"
+        android:icon="@android:drawable/ic_menu_save"
+        android:orderInCategory="4"
+        android:title="@string/pregunta"
+        app:showAsAction="never" />
+
+</menu>

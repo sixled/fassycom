@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Fassycom</string>
+    <string name="textalert">¿Que quieres hacer?</string>
+    <string name="textbutonfoto">Tomar una foto</string>
+    <string name="textbutonaudio">Grabar audio</string>
+    <string name="textbutoncategori">Elegir foto</string>
+    <string name="textbutoncat">Nueva categoria</string>
+    <string name="textbutondeletcategori">Nueva palabra</string>
+    <string name="title_activity_tab">tab</string>
+    <string name="action_settings">Exportar</string>
+    <string name="nuevo">Nuevo</string>
+    <string name="crear">Listo</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="borrar">Borrar</string>
+    <string name="pregunta">Creditos</string>
+    <string name="face">Facebook</string>
+    <string name="action_settings2">Importar</string>
+    <string name="Tilte">Fassycom</string>
+    <string name="info">En la categoría Frecuentes se mostrarán los 8 pictogramas más usados.</string>
+    <string name="toque">Frecuentes</string>
+
+
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/fassynewlight</item>
+        <item name="colorPrimaryDark">@color/fassynewosc</item>
+        <item name="colorAccent">@color/fassynewlight</item>
+    </style>
+
+
+</resources>
