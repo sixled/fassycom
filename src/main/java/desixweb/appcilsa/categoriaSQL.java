@@ -9,11 +9,12 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.IOException;
 
 //Created by sixled on 15/10/2017.
 
 public class categoriaSQL extends SQLiteOpenHelper {
-    private static final int basededatos_version =2;
+    private static final int basededatos_version =6;
     private static final String database = "Fassycom.db";
 
   private   String[] categoriaslist = {"Yo quiero", "Me siento", "Personas", "Si/No", "Alimentos", "Ropa", "Clima", "Cuándo", "Dónde","Cuantos"};
@@ -22,21 +23,21 @@ public class categoriaSQL extends SQLiteOpenHelper {
             R.drawable.donde_1,R.drawable.cuantos_1};
 //items yo quiero
    private String [] itemlist1={"Quiero","No quiero","Me gusta","No me gusta","Comer","Tomar","Dormir",
-            "Ir al baño","Bañarme","Ir a","Comprar","Ver televisión","Jugar","Jugar video juegos"};
+            "Ir al baño","Bañarme","Ir a","Jugar video juegos","Ver televisión","Jugar","Comprar"};
 
    private   Integer[] itemphotolist1={R.drawable.yoquiero_1,R.drawable.yoquiero_no_quiero,R.drawable.yoquiero_megusta,
             R.drawable.yoquiero_nomegusta,R.drawable.yoquiero_comer,R.drawable.yoquiero_tomar,R.drawable.yoquiero_dormir,R.drawable.yoquiero_iralbano,
-            R.drawable.yoquiero_banarme,R.drawable.yoquiero_ira,R.drawable.yoquiero_comprar,R.drawable.yoquiero_vertelevision,R.drawable.yoquiero_jugar,R.drawable.yoquiero_jugarvideojuegos};
+            R.drawable.yoquiero_banarme,R.drawable.yoquiero_ira,R.drawable.yoquiero_jugarvideojuegos,R.drawable.yoquiero_vertelevision,R.drawable.yoquiero_jugar,R.drawable.yoquiero_comprar};
 
-  private Integer []audiolist1={R.raw.quiero,R.raw.noquiero,R.raw.megusta,R.raw.nomegusta,R.raw.comer,R.raw.tomar,R.raw.dormir,R.raw.iralbano,R.raw.banarme,R.raw.ira,R.raw.comprar,R.raw.vertelevision,R.raw.jugar,R.raw.jugarvideojuegos};
+  private Integer []audiolist1={R.raw.quiero,R.raw.noquiero,R.raw.megusta,R.raw.nomegusta,R.raw.comer,R.raw.tomar,R.raw.dormir,R.raw.iralbano,R.raw.banarme,R.raw.ira,R.raw.jugarvideojuegos,R.raw.vertelevision,R.raw.jugar,R.raw.comprar};
   //items mesiento
   private   String [] itemlist2={"Me siento","Contento","Enojado","Asustado","Triste","Mareado","Con frío",
-            "Con calor","Con fiebre","Con dolor","Con dolor de espalda","Con dolor de estómago","Con dolor de muelas"};
+            "Con calor","Con fiebre","Con dolor de muelas","Con dolor de espalda","Con dolor de estómago","Con dolor"};
   private   Integer[] itemphotolist2={R.drawable.mesiento_1,R.drawable.mesiento_contento,R.drawable.mesiento_enojado,
             R.drawable.mesiento_asustado,R.drawable.mesiento_triste,R.drawable.mesiento_mareado,R.drawable.mesiento_confrio,R.drawable.mesiento_concalor,
-            R.drawable.mesiento_confiebre,R.drawable.mesiento_condolor,R.drawable.mesiento_condolordeespalda,R.drawable.mesiento_condolordeestomago,R.drawable.mesiento_condolordemuelas};
+            R.drawable.mesiento_confiebre,R.drawable.mesiento_condolordemuelas,R.drawable.mesiento_condolordeespalda,R.drawable.mesiento_condolordeestomago,R.drawable.mesiento_condolor};
 
-    private Integer []audiolist2={R.raw.mesiento,R.raw.contento,R.raw.enojado,R.raw.asustado,R.raw.triste,R.raw.mareado,R.raw.confrio,R.raw.concalor,R.raw.confiebre,R.raw.condolor,R.raw.condolordeespalda,R.raw.condolordeestomago,R.raw.condolordemuela};
+    private Integer []audiolist2={R.raw.mesiento,R.raw.contento,R.raw.enojado,R.raw.asustado,R.raw.triste,R.raw.mareado,R.raw.confrio,R.raw.concalor,R.raw.confiebre,R.raw.condolordemuela,R.raw.condolordeespalda,R.raw.condolordeestomago,R.raw.condolor};
   //items personas
 private String [] itemlist3={"Yo","Extraño a","Quiero a","Quiero hablar con","Viene"};
   private   Integer[] itemphotolist3={R.drawable.personas_yo,R.drawable.personas_extranoa,R.drawable.personas_quieroa,R.drawable.personas_hablarcon,R.drawable.personas_viene,};
@@ -109,9 +110,33 @@ private String [] itemlist9 ={"Dónde","Casa","Escuela","Hospital","Estar","Ir"}
         installcateg(db);
       db.execSQL("INSERT INTO usuario (instalacion,pasos) " +
                 "VALUES ('True' , '0' )");
+        File folder = new File(Environment.getExternalStorageDirectory(), MEDIA_temp );
+
+        if (!folder.exists()) {
+
+            folder.mkdirs();
+            File nomediaFile = new File(folder, ".nomedia");
+            try {
+                nomediaFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+            File foldershared = new File(Environment.getExternalStorageDirectory(), MEDIA_shared );
+        if (!foldershared.exists()) {
+
+        foldershared.mkdirs();
+        File nomediaFile = new File(folder, ".nomedia");
+        try {
+            nomediaFile.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-
+}
+    String MEDIA_DIRECTORY = "/Fassycom/";
+    String MEDIA_temp = "/Fassycom/temp";
+    String MEDIA_shared = "/Fassycom/Shared";
     @Override
     public void onUpgrade(SQLiteDatabase db, int versionAnterior, int versionNueva) {
         //NOTA: Por simplicidad del ejemplo aquí utilizamos directamente la opción de
@@ -130,9 +155,21 @@ private String [] itemlist9 ={"Dónde","Casa","Escuela","Hospital","Estar","Ir"}
 
         //db.execSQL("INSERT INTO usuario (instalacion,pasos) " +
            //     "VALUES ('False' , '0' )");
+        File borrarcarpetafassycom=new File(Environment.getExternalStorageDirectory().getAbsolutePath() + MEDIA_DIRECTORY );
+
+        if (borrarcarpetafassycom.exists())
+        {
+            String[] children = borrarcarpetafassycom.list();
+            for (int i = 0; i < children.length; i++)
+            {
+                new File(borrarcarpetafassycom, children[i]).delete();
+                borrarcarpetafassycom.delete();
+            }
+
+        }
         onCreate(db);
     }
-    String MEDIA_DIRECTORY = "/Fassycom/";
+
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
     }

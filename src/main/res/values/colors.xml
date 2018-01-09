@@ -7,7 +7,7 @@
     <color name="none">#009cbecc</color>
     <color name="coloritems">#f3dbdbdb</color>
     <color name="body">#e9e3c0</color>
-    <color name="bodyconten">#f4f4f0</color>
+    <color name="bodyconten">#f2f2f2</color>
     <color name="fassynewlight">#fc8685</color>
     <color name="fassynewosc">#d67272</color>
     <color name="Negro">#000000</color>
@@ -15,5 +15,7 @@
     <color name="cian">#51c2d0</color>
     <color name="modaltext">#66000000</color>
     <color name="textgrid">#dd9a27ff</color>
+    <color name="rep">#9ded69</color>
     <color name="gridbody">#efffbf</color>
+    <color name="splash">#cab133</color>
 </resources>

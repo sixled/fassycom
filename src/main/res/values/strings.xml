@@ -12,12 +12,33 @@
     <string name="crear">Listo</string>
     <string name="cancelar">Cancelar</string>
     <string name="borrar">Borrar</string>
-    <string name="pregunta">Creditos</string>
+    <string name="pregunta">Pregunta</string>
     <string name="face">Facebook</string>
     <string name="action_settings2">Importar</string>
     <string name="Tilte">Fassycom</string>
-    <string name="info">En la categoría Frecuentes se mostrarán los 8 pictogramas más usados.</string>
+    <string name="info">En la categoría Frecuentes se mostrarán los 12 pictogramas más usados.</string>
     <string name="toque">Frecuentes</string>
+    <string name="linkfassycom">FACEBOOK.COM/FASSYCOM</string>
+    <string name="nada">................................................................</string>
+    <string name="forcilsa">CON EL APOYO DE</string>
+    <string name="titlesplash">INFORMACIÓN</string>
+    <string name="linkcilsa">CILSA.ORG</string>
+    <string name="logo_fassycom">Logo fassycom</string>
+    <string name="logo_cilsa">logo cilsa</string>
+    <string name="usos">usos</string>
+    <string name="listo">Listo</string>
+    <string name="facebook">Facebook</string>
+    <string name="modo_tablet">modo Tablet</string>
+    <string name="cr_ditos">Créditos</string>
+    <string name="preguntar">preguntar</string>
+    <string name="modo_celular">modo Celular</string>
+    <string name="imagen_nuevo">imagen nuevo</string>
+    <string name="imagen_una_pregunta">imagen una pregunta</string>
+    <string name="imaen_grid">imaen grid</string>
+    <string name="textview">TextView</string>
+    <string name="nombre">Nombre</string>
+    <string name="selectimage">selectimage</string>
+    <string name="editar">Editar</string>
 
 
 </resources>

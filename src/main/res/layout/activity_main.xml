@@ -7,12 +7,12 @@
     android:background="@color/body"
     android:orientation="vertical">
 
+
     <LinearLayout
         android:id="@+id/categorias"
         android:layout_width="0dp"
         android:layout_height="102dp"
         android:background="@drawable/shadowcateg"
-        android:elevation="3dp"
         android:orientation="horizontal"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -23,9 +23,7 @@
         <HorizontalScrollView
             android:id="@+id/categscroll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:elevation="1dp"
-            tools:ignore="UselessParent">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,10 +38,10 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imageButton8"
+                        android:id="@+id/imagefrecuente"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:contentDescription="usos"
+                        android:contentDescription="@string/usos"
                         android:onClick="touchlist"
                         app:srcCompat="@drawable/uso"
                         tools:ignore="ContentDescription" />
@@ -81,11 +79,10 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imageButton6"
+                        android:id="@+id/imagenuevo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:contentDescription="nuevo"
-                        android:onClick="crearcategoria"
+                        android:contentDescription="@string/nuevo"
                         app:srcCompat="@drawable/icon_add" />
 
                     <TextView
@@ -107,6 +104,7 @@
 
             </LinearLayout>
         </HorizontalScrollView>
+
     </LinearLayout>
 
     <LinearLayout
@@ -126,7 +124,7 @@
             android:id="@+id/gridview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:columnWidth="72dp"
+            android:columnWidth="@dimen/fototablet"
             android:gravity="center"
             android:horizontalSpacing="5dp"
             android:numColumns="auto_fit"
@@ -177,7 +175,7 @@
                 android:layout_below="@+id/textView5"
                 android:layout_centerHorizontal="true"
                 android:onClick="pasos"
-                android:text="Listo"
+                android:text="@string/listo"
                 android:textSize="12sp" />
         </RelativeLayout>
     </LinearLayout>
@@ -185,20 +183,16 @@
     <LinearLayout
         android:id="@+id/menu"
         android:layout_width="148dp"
-        android:layout_height="108dp"
+        android:layout_height="187dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/titleapp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginTop="42dp"
-        android:layout_toEndOf="@+id/imageButton2"
-        android:layout_toRightOf="@+id/imageButton2"
+        android:layout_marginTop="40dp"
         android:background="@drawable/border_shadow"
         android:elevation="6dp"
         android:orientation="horizontal"
         android:visibility="gone"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="DisableBaselineAlignment,NotSibling"
         tools:targetApi="lollipop">
@@ -214,7 +208,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
-                android:text="Facebook" />
+                android:text="@string/facebook" />
+
+            <Button
+                android:id="@+id/tablets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/modoeditable"
+                android:layout_centerHorizontal="true"
+                android:onClick="onClick"
+                android:text="@string/modo_tablet"
+                tools:layout_editor_absoluteX="182dp"
+                tools:layout_editor_absoluteY="117dp" />
+
+            <ToggleButton
+                android:id="@+id/modoeditable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/creditos"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:text="Editar"
+                android:textOff="Modo editar"
+                android:textOn="No Editar" />
 
             <Button
                 android:id="@+id/creditos"
@@ -224,7 +241,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:onClick="onClick"
-                android:text="Créditos" />
+                android:text="@string/cr_ditos" />
 
         </RelativeLayout>
 
@@ -260,26 +277,24 @@
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+                android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@+id/button4"
                 android:layout_toStartOf="@+id/button4"
                 android:background="@drawable/fsc_btn_trash"
                 android:onClick="borrar" />
 
-            <ImageButton
-                android:id="@+id/imageButton4"
-                android:layout_width="30dp"
+            <Button
+                android:id="@+id/sendfass"
+                android:layout_width="55dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:contentDescription="listo"
-                android:onClick="onClick"
-                android:visibility="invisible"
-                app:srcCompat="@android:drawable/ic_menu_more"
-                tools:layout_editor_absoluteX="319dp"
-                tools:layout_editor_absoluteY="-29dp" />
+                android:layout_toEndOf="@+id/titleapp"
+                android:layout_toRightOf="@+id/titleapp"
+                android:background="@drawable/fsc_btn_send"
+                android:onClick="sendfassy"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="97dp"
+                tools:layout_editor_absoluteY="0dp" />
 
             <TextView
                 android:id="@+id/titleapp"
@@ -288,11 +303,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="13dp"
-                android:layout_marginStart="13dp"
+                android:longClickable="true"
+                android:onClick="onClick"
                 android:text="@string/Tilte"
                 android:textColor="@android:color/white"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </RelativeLayout>
     </LinearLayout>
@@ -354,7 +369,8 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="visible">
 
                     <LinearLayout
                         android:id="@+id/question"
@@ -364,17 +380,17 @@
                         android:visibility="gone">
 
                         <ImageButton
-                            android:id="@+id/imageButton"
+                            android:id="@+id/imagenpregunta"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:contentDescription="preguntar"
+                            android:contentDescription="@string/preguntar"
                             app:srcCompat="@drawable/question" />
 
                         <TextView
                             android:id="@+id/textView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Pregunta"
+                            android:text="@string/pregunta"
                             android:textAlignment="center"
                             android:textColor="@android:color/black" />
 
@@ -384,11 +400,26 @@
                         android:id="@+id/reproducion"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"></LinearLayout>
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
 
                 </LinearLayout>
+
             </HorizontalScrollView>
         </RelativeLayout>
+
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/butonnext"
+        android:layout_width="56dp"
+        android:layout_height="89dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/flech"
+        android:onClick="nexcateg"
+        app:layout_constraintBottom_toTopOf="@+id/pictogramas"
+        app:layout_constraintEnd_toEndOf="@+id/categorias" />
 
 </android.support.constraint.ConstraintLayout>
