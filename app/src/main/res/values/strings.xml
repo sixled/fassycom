@@ -1,0 +1,195 @@
+<resources>
+    <string name="app_name">Fassycom 2.0</string>
+    // String categorias
+    <string name="categnom1">Yo quiero</string>
+    <string name="categnom2">Me siento</string>
+    <string name="categnom3">Personas</string>
+    <string name="categnom4">Si/No</string>
+    <string name="categnom5">Alimentos</string>
+    <string name="categnom6">Ropa</string>
+    <string name="categnom7">Clima</string>
+    <string name="categnom8">Cuándo</string>
+    <string name="categnom9">Dónde</string>
+    <string name="categnom10">Cuantos</string>
+    // Pictogramas
+        // categoria yo quiero
+        
+    <string name="pic1"> Quiero </string>
+    <string name="pic2"> No Quiero </string>
+    <string name="pic3"> "Me gusta </string>
+    <string name="pic4"> No me gusta </string>
+    <string name="pic5"> Comer </string>
+    <string name="pic6"> Tomar </string>
+    <string name="pic7"> Dormir </string>
+    <string name="pic8"> Ir al baño </string>
+    <string name="pic9"> Bañarme </string>
+    <string name="pic10"> Ir a </string>
+    <string name="pic11"> Jugar video juegos </string>
+    <string name="pic12"> Ver televisión </string>
+    <string name="pic13"> Jugar </string>
+    <string name="pic14"> Comprar </string>
+        // categoria mesiento
+        
+    <string name="pic15"> Me siento </string>
+    <string name="pic16"> Contento </string>
+    <string name="pic17"> Enojado </string>
+    <string name="pic18"> Asustado </string>
+    <string name="pic19"> Triste </string>
+    <string name="pic20"> Mareado </string>
+    <string name="pic21"> Con frío </string>
+    <string name="pic22"> Con calor </string>
+    <string name="pic23"> Con fiebre </string>
+    <string name="pic24"> Con dolor de muelas </string>
+    <string name="pic25"> Con dolor de espalda </string>
+    <string name="pic26"> Con dolor de estómago </string>
+    <string name="pic27"> Con dolor </string>
+      // categoria personas
+        
+    <string name="pic28"> Yo </string>
+    <string name="pic29"> Extraño a </string>
+    <string name="pic30"> Quiero a </string>
+    <string name="pic31"> Quiero hablar con </string>
+    <string name="pic32"> Viene </string>
+    // categoria si no
+        
+    <string name="pic33"> Si </string>
+    <string name="pic34"> No </string>
+        // categoria alimentos
+        
+    <string name="pic35"> Me gusta </string>
+    <string name="pic36"> No me gusta </string>
+    <string name="pic37"> Pan </string>
+    <string name="pic38"> Agua </string>
+    <string name="pic39"> Leche </string>
+    <string name="pic40"> Carne </string>
+    <string name="pic41"> Pollo </string>
+    <string name="pic42"> Empanada </string>
+    <string name="pic43"> Tomate </string>
+    <string name="pic44"> Gaseosa </string>
+    <string name="pic45"> Helado </string>
+    <string name="pic46"> Torta </string>
+    //categoria Ropa
+    <string name="pic47"> Ropa </string>
+    <string name="pic48"> Ponerme </string>
+    <string name="pic49"> Ponerme el abrigo </string>
+    <string name="pic50"> Sacarme el abrigo </string>
+    <string name="pic51"> Remera </string>
+    <string name="pic52"> Pantalón </string>
+    <string name="pic53"> Camisa </string>
+    <string name="pic54"> Campera </string>
+    <string name="pic55"> Bufanda </string>
+    <string name="pic56"> Gorro </string>
+    <string name="pic57"> Guantes </string>
+    <string name="pic58"> Pijama </string>
+        // categoria clima
+        
+    <string name="pic59"> Hay sol </string>
+    <string name="pic60"> Llueve </string>
+    <string name="pic61">Hay tormenta</string>
+    <string name="pic62"> Hay viento </string>
+        // categoria cuando
+        
+    <string name="pic63">Cuando</string>
+    <string name="pic64"> Hoy </string>
+    <string name="pic65"> Ayer </string>
+    <string name="pic66"> Mañana </string>
+        // categoria donde
+        
+    <string name="pic67"> Dónde </string>
+    <string name="pic68"> Casa </string>
+    <string name="pic69"> Escuela </string>
+    <string name="pic70"> Hospital </string>
+    <string name="pic71"> Estar </string>
+    <string name="pic72"> Ir </string>
+    // cuantos
+        
+    <string name="pic73"> Cuántos </string>
+    <string name="pic74"> Muchos </string>
+    <string name="pic75"> Pocos </string>
+    <string name="pic76"> Nada </string>
+    <string name="pic77"> No hay </string>
+    <string name="pic78"> Hay </string>
+    <string name="pic79"> Uno </string>
+    <string name="pic80"> Dos </string>
+    <string name="pic81"> Tres </string>
+    <string name="pic82"> Cuatro </string>
+    <string name="pic83"> Cinco </string>
+    //
+
+    <string name="textalert">¿Que quieres hacer?</string>
+    <string name="textbutonfoto">Tomar una foto</string>
+    <string name="textbutonaudio">Grabar audio</string>
+    <string name="textbutoncategori">Elegir foto</string>
+    <string name="textbutoncat">Nueva categoria</string>
+    <string name="textbutondeletcategori">Nueva palabra</string>
+    <string name="title_activity_tab">tab</string>
+    <string name="action_settings">Exportar</string>
+    <string name="nuevo">Nuevo</string>
+    <string name="crear">Listo</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="borrar">Borrar</string>
+    <string name="pregunta">Pregunta</string>
+    <string name="face">Facebook</string>
+    <string name="action_settings2">Importar</string>
+    <string name="Tilte">Fassycom</string>
+    <string name="info">Esta categoria  mostrará los 20 pictogramas más usados.</string>
+    <string name="toque">Frecuentes</string>
+    <string name="linkfassycom">FACEBOOK.COM/FASSYCOM</string>
+    <string name="nada">................................................................</string>
+    <string name="forcilsa">CON EL APOYO DE</string>
+    <string name="titlesplash">INFORMACIÓN</string>
+    <string name="linkcilsa">CILSA.ORG</string>
+    <string name="logo_fassycom">Logo fassycom</string>
+    <string name="logo_cilsa">logo cilsa</string>
+    <string name="usos">usos</string>
+    <string name="listo">Listo</string>
+    <string name="facebook">Facebook</string>
+    <string name="modo_tablet">modo Tablet</string>
+    <string name="preguntar">preguntar</string>
+    <string name="modo_celular">modo Celular</string>
+    <string name="imagen_nuevo">imagen nuevo</string>
+    <string name="imagen_una_pregunta">imagen una pregunta</string>
+    <string name="imaen_grid">imaen grid</string>
+    <string name="textview">TextView</string>
+    <string name="nombre">Nombre</string>
+    <string name="selectimage">selectimage</string>
+    <string name="sesion">sesión</string>
+    <string name="pictogramas">Pictogramas</string>
+    <string name="imagen">IMAGEN</string>
+    <string name="elegir_foto">Elegir foto</string>
+    <string name="sacar_foto">Sacar foto</string>
+    <string name="menu">Menu</string>
+    <string name="editar">Editar</string>
+    <string name="no_editar">No Editar</string>
+    <string name="no_borrado">No Borrado</string>
+    <string name="categ_siguiente">Boton siguiente</string>
+    <string name="no_siguiente">No siguiente</string>
+    <string name="auto_borrado">Sensor Borrado</string>
+    <string name="no_reproducir">No reproducir</string>
+    <string name="reproducir">Reproducir</string>
+    <string name="toca_una_de_ellas">Toca una de ellas</string>
+    <string name="esta_son_las_categorias">Éstas son las categorias</string>
+    <string name="bienvenido_a_fassycom">Bienvenido a Fassycom</string>
+    <string name="pictograma_nuevo_te_permite_crear">Pictograma Nuevo te permite crear</string>
+    <string name="esta_es_la_lista_de_pictogramas">Ésta es la lista de pictogramas</string>
+    <string name="toca_los_que_quieras_usar">Toca los que quieras usar</string>
+    <string name="toca_para_reproducir">Toca para reproducir</string>
+    <string name="borra_los_pictogramas">Borra los pictogramas</string>
+    <string name="toca_para_crear_una_pregunta">Toca para crear una pregunta</string>
+    <string name="toca_para_abrir_o_cerrar_el_menu">Manten apretado para abrir el menu</string>
+    <string name="todo">img</string>
+    <string name="title_activity_settings_menu">Configuración</string>
+
+    <!-- Strings related to Settings -->
+    <!-- crop -->
+    <string name="crop_image_activity_no_permissions">Cancelado, requiere permisos</string>
+    <string name="crop_image_activity_title"/>
+    <string name="crop_image_menu_crop">Cortar</string>
+    <string name="crop_image_menu_flip">Voltear</string>
+    <string name="crop_image_menu_flip_horizontally">Voltear horizontal</string>
+    <string name="crop_image_menu_flip_vertically">Voltear vertical</string>
+    <string name="crop_image_menu_rotate_left">Rotate al reves</string>
+    <string name="crop_image_menu_rotate_right">Rotar</string>
+    <string name="pick_image_intent_chooser_title">Selecionar archivo</string>
+
+</resources>

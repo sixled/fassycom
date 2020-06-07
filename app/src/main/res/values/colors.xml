@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#c9114f</color>
+    <color name="lash">#f60b5a</color>
+    <color name="none">#009CBECC</color>
+    <color name="coloritems">#f3dbdbdb</color>
+    <color name="body">#C8C8C8</color>
+    <color name="bodyconten">#edeced</color>
+    <color name="fassynewlight">#E85280</color>
+    <color name="fassynewosc">#513132</color>
+    <color name="Negro">#000000</color>
+    <color name="green">#64dd17</color>
+    <color name="cian">#51c2d0</color>
+    <color name="modaltext">#66000000</color>
+    <color name="textgrid">#E85280</color>
+    <color name="rep">#9ded69</color>
+    <color name="gridbody">#efffbf</color>
+    <color name="splash">#cab133</color>
+    <color name="oscuro">#000000</color>
+    <color name="background_material_light">#a8000000</color>
+    <color name="categpict">#ae243cf9</color>
+    <color name="White">#ffffff</color>
+    <color name="fassycateg">#d57bf1</color>
+    <color name="grayy">#919191</color>
+</resources>

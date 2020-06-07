@@ -1,0 +1,112 @@
+<resources>
+    <string name="app_name">Fassycom</string>
+    // String categ
+    <string name="categnom1">I want</string>
+    <string name="categnom2">I feel</string>
+    <string name="categnom3">People</string>
+    <string name="categnom4">Yes/No</string>
+    <string name="categnom5">Foods</string>
+    <string name="categnom6">Clothes</string>
+    <string name="categnom7">Weather</string>
+    <string name="categnom8">When</string>
+    <string name="categnom9">Where</string>
+    <string name="categnom10">How many</string>
+    //
+    // Pictograms
+    // category i want
+    <string name = "pic1"> I want </string> <string name = "pic2"> I do not want </string> <string name = "pic3"> "I like it </string> <string name ="pic4"> I do not like </string> <string name ="pic5"> Eat </string> <string name ="pic6"> Take </string> <string name ="pic7"> Sleep </string> <string name = "pic8"> Go to the bathroom </string> <string name = "pic9"> Bathe me </string> <string name = "pic10"> Go to </string> <string name = "pic11"> Play video games </string> <string name = "pic12"> Watch TV </string> <string name = "pic13"> Play </string> <string name = "pic14"> Buy </string>
+    // month category
+    <string name = "pic15"> I feel </string> <string name = "pic16"> Content </string> <string name = "pic17"> Angry </string> <string name = "pic18"> Frightened </string> <string name = "pic19"> Sorry </string> <string name = "pic20"> Dizzy </string> <string name = "pic21"> Cold </string> <string name = "pic22" > With heat </string> <string name = "pic23"> With a fever </string> <string name = "pic24"> With a toothache </string> <string name = "pic25">With a backache </string> <string name = "pic26"> With stomach pain </string> <string name = "pic27"> With pain </string>
+
+    // category people
+    <string name = "pic28"> I </string> <string name = "pic29"> I miss a </string> <string name = "pic30"> I want a </string> <string name = "pic31"> I want talk to </string> <string name = "pic32"> Comes </string>
+    // category yes no
+    <string name = "pic33"> Yes </string> <string name = "pic34"> No </string>
+    // food category
+    <string name = "pic35"> I like it </string> <string name = "pic36"> I do not like it </string> <string name = "pic37"> Pan </string> <string name = "pic38"> Water </string> <string name = "pic39"> Milk </string> <string name = "pic40"> Beef </string> <string name = "pic41"> Chicken </string> <string name = "pic42"> Pie </string> <string name = "pic43"> Tomato </string> <string name = "pic44"> Soda </string> <string name = "pic45"> Ice cream </string> <string name = "pic46"> Cake </string>
+    // category Clothing
+    <string name = "pic47"> Clothes </string> <string name = "pic48"> Put me </string> <string name = "pic49"> Put on my coat </string> <string name = "pic50"> Take me out the coat </string> <string name = "pic51"> T-shirt </string> <string name = "pic52"> Trousers </string> <string name = "pic53"> Shirt </string> <string name = "pic54"> Campera </string> <string name ="pic55"> Scarf </string> <string name ="pic56"> Cap </string> <string name ="pic57"> Gloves </string> <string name = "pic58"> Pajamas </string>
+    // climate category
+    <string name = "pic59"> There is sun </string> <string name = "pic60"> It rains </string> <string name = "pic61"> There is a storm </string> <string name = "pic62" > There is wind </string>
+    // category when
+    <string name = "pic63">when</string> <string name = "pic64"> Today </string> <string name = "pic65"> Yesterday </string> <string name = "pic66"> Tomorrow </string>
+    // category where
+    <string name = "pic67"> Where </string> <string name = "pic68"> House </string> <string name = "pic69"> School </string> <string name = "pic70"> Hospital </string> <string name = "pic71"> Being </string> <string name = "pic72"> Go </string>
+    // how many
+    <string name = "pic73"> How many </string> <string name = "pic74"> Many </string> <string name = "pic75"> Few </string> <string name = "pic76"> Nothing </string> string> <string name = "pic77"> There is no </string> <string name = "pic78"> There is </string> <string name = "pic79"> One </string> <string name = "pic80"> Two </string> <string name = "pic81"> Three </string> <string name = "pic82"> Four </string> <string name = "pic83"> Five </string>
+
+
+    <string name="textalert">You want to do?</string>
+    <string name="textbutonfoto">Take a photo</string>
+    <string name="textbutonaudio">Record audio</string>
+    <string name="textbutoncategori">Choose photo</string>
+    <string name="textbutoncat">New category</string>
+    <string name="textbutondeletcategori">New word</string>
+    <string name="title_activity_tab">tab</string>
+    <string name="action_settings">To export</string>
+    <string name="nuevo">New</string>
+    <string name="crear">Ready</string>
+    <string name="cancelar">Cancel</string>
+    <string name="borrar">Delete</string>
+    <string name="pregunta">Question</string>
+    <string name="face">Facebook</string>
+    <string name="action_settings2">to import</string>
+    <string name="Tilte">Fassycom</string>
+    <string name="info">In the category Frecuentes the 20 most used pictograms will be shown.</string>
+    <string name="toque">Frequent</string>
+    <string name="linkfassycom">FACEBOOK.COM/FASSYCOM</string>
+    <string name="nada">................................................................</string>
+    <string name="forcilsa">WITH THE SUPPORT OF</string>
+    <string name="titlesplash">INFORMATION</string>
+    <string name="linkcilsa">CILSA.ORG</string>
+    <string name="logo_fassycom">Logo fassycom</string>
+    <string name="logo_cilsa">logo cilsa</string>
+    <string name="usos">applications</string>
+    <string name="listo">Ok</string>
+    <string name="facebook">Facebook</string>
+    <string name="modo_tablet">Tablet mode</string>
+    <string name="preguntar">preguntar</string>
+    <string name="modo_celular">Cell mode</string>
+    <string name="imagen_nuevo">imagen nuevo</string>
+    <string name="imagen_una_pregunta">imagen una pregunta</string>
+    <string name="imaen_grid">imaen grid</string>
+    <string name="textview">TextView</string>
+    <string name="nombre">Name</string>
+    <string name="selectimage">selectimage</string>
+    <string name="editar">Edit</string>
+    <string name="sesion">session</string>
+    <string name="imagen">IMAGEN</string>
+    <string name="elegir_foto">Choose photo</string>
+    <string name="sacar_foto">Take a photo</string>
+    <string name="menu">Menu</string>
+    <string name="no_editar">Not Edit</string>
+    <string name="no_borrado">Not Deleted</string>
+    <string name="categ_siguiente">Next button</string>
+    <string name="no_siguiente">Not following</string>
+    <string name="auto_borrado">Erased Sensor</string>
+    <string name="no_reproducir">Do not play</string>
+    <string name="reproducir">Play</string>
+    <string name="toca_una_de_ellas">Touch one of them</string>
+    <string name="esta_son_las_categorias">These are the categories</string>
+    <string name="bienvenido_a_fassycom">Welcome to Fassycom</string>
+    <string name="pictograma_nuevo_te_permite_crear">New Pictogram allows you to create</string>
+    <string name="esta_es_la_lista_de_pictogramas">This is the list of pictograms</string>
+    <string name="toca_los_que_quieras_usar">Touch the ones you want to use</string>
+    <string name="toca_para_reproducir">Touch to play</string>
+    <string name="borra_los_pictogramas">Delete the pictograms</string>
+    <string name="toca_para_crear_una_pregunta">Tap to create a question</string>
+    <string name="toca_para_abrir_o_cerrar_el_menu">Touch to open or close the menu</string>
+    <string name="todo">img</string>
+    <string name="pictogramas">Pictograms</string>
+    <string name="title_activity_settings_menu">Settings</string>
+    <!-- crop -->
+    <string name="crop_image_activity_no_permissions">Cancelling, required permissions are not granted</string>
+    <string name="crop_image_activity_title"/>
+    <string name="crop_image_menu_crop">Crop</string>
+    <string name="crop_image_menu_flip">Flip</string>
+    <string name="crop_image_menu_flip_horizontally">Flip horizontally</string>
+    <string name="crop_image_menu_flip_vertically">Flip vertically</string>
+    <string name="crop_image_menu_rotate_left">Rotate counter clockwise</string>
+    <string name="crop_image_menu_rotate_right">Rotate</string>
+    <string name="pick_image_intent_chooser_title">Select source</string>
+</resources>
