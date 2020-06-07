@@ -44,7 +44,6 @@ import android.widget.GridView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -786,7 +785,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
                 } else {
                     int numEntero = Integer.parseInt(source);
                     Object image = pictoGridview.get(numEntero).getFoto();
-                    showImagePlay(nombreitem, image);
+                    addPictogramReproductor(nombreitem, image);
                     if (modoplay) {
                         autoPlaySound();
                     }
@@ -876,8 +875,8 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         }
 
     }
-int playauto=0;
-    public void showImagePlay(String nombre, Object image) {
+    int playauto=0;
+    public void addPictogramReproductor(String nombre, Object image) {
      //   mRecycleView.setItemViewCacheSize(cachecateg);
         int sumauso = 0;
         String base;
@@ -889,9 +888,9 @@ int playauto=0;
         Cursor clm = db.rawQuery(" SELECT uso,audio,base FROM item Where nombre=?  limit 1", args);
         if (clm.moveToFirst()) {
             do {
+                // se Obtiene sonido de la base de datos
                 String uso = clm.getString(0);
                 base = clm.getString(2);
-
                 audio = clm.getString(1);
                 if(isnumeric(audio)){
                     int audio1 = clm.getInt(1);
@@ -904,6 +903,7 @@ int playauto=0;
                                 Toasty.error(getBaseContext(), "Grabación no encontrada", Toast.LENGTH_SHORT, true).show();
                                 image=R.drawable.caution;
                             }
+                            // se agrega a  pictoplay el sonido , la imagen y nombre
                             pictoPlay.add(new Pictograma(null,nombre,image,audio,base));
                         }
                     }
@@ -913,17 +913,16 @@ int playauto=0;
             }
             while (clm.moveToNext());
         }
-    //    mRecyclePlay.setItemViewCacheSize(cacheplay);
-     //   mRecyclePlay.setAdapter(mAdapterPlay);
-
+        // se actualiza el adaptador de reproducion con los nuevos pictogramas tocados
         mAdapterPlay.notifyDataSetChanged();
-      //  mRecyclePlay.smoothScrollToPosition(pictoPlay.size());
+        //al actualizarse se mueve el scroll
+        mRecyclePlay.smoothScrollToPosition(pictoPlay.size());
         playauto++;
 
-            sumauso++;
-            db.execSQL("UPDATE  item SET uso ='" + sumauso + "' where nombre='" + nombre + "'");
-            db.close();
-            clm.close();
+        sumauso++;
+        db.execSQL("UPDATE  item SET uso ='" + sumauso + "' where nombre='" + nombre + "'");
+        db.close();
+        clm.close();
     }
 
     public void getPhotoDialog(View v) {
@@ -1513,6 +1512,7 @@ int playauto=0;
 
     }
     public void btnDelete(View view) {
+      // cuando se toca ell boton de play , vaciar las variables y actualizar adaptadores de reproducion
         if (mp != null) {
             if (!pictoPlay.isEmpty()) {
                 try {
@@ -1529,16 +1529,15 @@ int playauto=0;
         }
         pasos(4);
         currentposition = 0;
+        mRecyclePlay.smoothScrollToPosition(0);
         pictoPlay.clear();
         mAdapterPlay.notifyDataSetChanged();
         LinearLayout hh=findViewById(6500+currentposition);
         if(hh!=null){
             hh.setBackgroundColor(Color.TRANSPARENT);
         }
-
         uris.clear();
         quest = 0;
-
         playauto=0;
         Button sendfass = findViewById(R.id.sendfass);
         sendfass.setVisibility(View.GONE);
@@ -1551,6 +1550,7 @@ int playauto=0;
     public void btnQuestion(View view) {
         quest++;
         pasos(6);
+        // cuando apreta el boton de pregunat se agrega el pictograma pregunta y se actualiza adaptador de reproducion
         pictoPlay.add(new Pictograma(null,"Pregunta",R.drawable.question,R.raw.unapregunta,"local"));
         mAdapterPlay.notifyDataSetChanged();
         playauto++;
@@ -1766,60 +1766,6 @@ int playauto=0;
         }
     }
 
-    public void sendfassy(View v) {
-        String MEDIA_shared = "Shared";
-        Intent compartiraudio = new Intent(Intent.ACTION_SEND_MULTIPLE);
-        compartiraudio.setType("audio/*"); //el tipo es un audio
-        for (int x = 0; x < pictoPlay.size(); x++) {
-            // paths = null;
-            String pathhout = rutafassycom+ MEDIA_shared + File.separator + pictoPlay.get(x).nombrepic + ".mp3";
-            File soundsend = new File(pathhout);
-            if (!soundsend.exists()) {
-                if (pictoPlay.get(x).basex.equals("sdcard")) {
-                    String paths = String.valueOf(pictoPlay.get(x).audio); //aquí selecciona el path dónde se almacena el audio y su extensión
-                    File file1 = new File(paths);
-                    File tofile1 = new File(pathhout);
-                    try {
-                        copy(file1, tofile1);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-                if (pictoPlay.get(x).basex.equals("local")) {
-                    InputStream inputStream;
-                    FileOutputStream fileOutputStream;
-                    try {
-                        Integer ogg = Integer.parseInt(pictoPlay.get(x).audio.toString());
-                        inputStream = getResources().openRawResource(ogg);
-                        fileOutputStream = new FileOutputStream(
-                                new File(pathhout));
-
-                        byte[] buffer = new byte[1024];
-                        int length;
-                        while ((length = inputStream.read(buffer)) > 0) {
-                            fileOutputStream.write(buffer, 0, length);
-                        }
-
-                        inputStream.close();
-                        fileOutputStream.close();
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-                if (pathhout != null) {
-                    uris.add(Uri.parse(pathhout));
-                }
-
-            }
-        }
-
-        compartiraudio.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
-        startActivity(Intent.createChooser(compartiraudio, "Comparte un archivo de audio"));
-
-
-    }
     public void copy(File src, File dst) throws IOException {
         FileInputStream inStream = new FileInputStream(src);
         FileOutputStream outStream = new FileOutputStream(dst);
@@ -1839,7 +1785,7 @@ int playauto=0;
         splash.show();
         return splash;
     }
-boolean cargar=false;
+    boolean cargar=false;
     public ArrayList < Integer > lettersIcons = new ArrayList < > ();
     public void imagesExtra(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
