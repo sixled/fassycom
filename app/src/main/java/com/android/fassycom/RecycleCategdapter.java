@@ -19,12 +19,12 @@ import java.util.ArrayList;
 
 public class RecycleCategdapter extends RecyclerView.Adapter<RecycleCategdapter.ViewHolder> {
     private Context context;
-ArrayList<CategoriaObject> listacateg;
+    ArrayList<CategoriaObject> listacateg;
     int Tamano;
     public RecycleCategdapter(ArrayList<CategoriaObject> mCateg, int Tamaño) {
         this.listacateg=mCateg; this.Tamano=Tamaño;
     }
-
+    LinearLayout olderbar;
 
     @NonNull
     @Override
@@ -37,19 +37,38 @@ ArrayList<CategoriaObject> listacateg;
         return new ViewHolder(view);
     }
     Boolean delete=false;
-    int hold_id;
+
     @Override
     public void onBindViewHolder(@NonNull final RecycleCategdapter.ViewHolder holder, final int position) {
         holder.mTexto.setText(listacateg.get(position).nombre);
         Glide.with(holder.itemView.getContext()).load(listacateg.get(position).foto).apply(new RequestOptions().override(Tamano).fitCenter()).into(holder.imageview);
          holder.BarView.setId(position);
-
+         if(position==0){
+           // al iniciar la categorias frecuentes se hace visible su barra
+           holder.BarView.setVisibility(View.VISIBLE);
+           olderbar=holder.BarView;
+           delete=true;
+         }
+      holder.mItemview.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          // cuando hace click en las categorias mostrar la barra y ocultar la antigua visible si delete es tue
+          if(delete){
+            olderbar.setVisibility(View.INVISIBLE);
+            delete=false;
+          }
+          holder.BarView.setVisibility(View.VISIBLE);
+          olderbar=holder.BarView;
+          delete=true;
+        }
+      });
     }
+
+
     @Override
     public int getItemCount() {
         return listacateg.size();
     }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 

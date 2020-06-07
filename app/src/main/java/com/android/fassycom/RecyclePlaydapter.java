@@ -44,11 +44,11 @@ int Tamano;
         Glide.with(holder.itemView.getContext()).load(listapictograma.get(position).foto).apply(new RequestOptions().override(Tamano)).into(holder.imageview);
         holder.mItemview.setId(6500+position);
     }
+
     @Override
     public int getItemCount() {
         return listapictograma.size();
     }
-
     public class ViewHolder extends RecyclerView.ViewHolder{
 
 

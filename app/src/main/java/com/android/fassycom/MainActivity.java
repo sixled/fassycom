@@ -65,6 +65,7 @@ import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -147,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         String packageName = getApplicationContext().getPackageName();
         rutafassycom = rutaprincipal + packageName + "/Fassycom/";
         //codigo para que el usuario mande error
-        Thread.setDefaultUncaughtExceptionHandler(this);
+       // Thread.setDefaultUncaughtExceptionHandler(this);
 
         Intent intent = getIntent();
         String action = intent.getAction();
@@ -230,14 +231,6 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
                     @Override
                     public void onClick(View view, int position) {
                       accionError="Toca categoria ";
-                        View bar=view.findViewById(position);
-                        if(delte){
-                          holdview.setVisibility(View.INVISIBLE);
-                          delte=false;
-                        }
-                        bar.setVisibility(View.VISIBLE);
-                        holdview=bar;
-                        delte=true;
                        String nombrecateg= mCateg.get(position).nombre;
                         String tipo= mCateg.get(position).tipo;
                         accionesCategoria(nombrecateg,tipo);
@@ -260,6 +253,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         String nombrecateg= mCateg.get(0).nombre;
         String tipo= mCateg.get(0).tipo;
         accionesCategoria(nombrecateg,tipo);
+
 
         if (!instalacion.equals("True")) {
 
@@ -329,6 +323,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         menu.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+              accionError="Toca configuracion ";
                 Vibrator vib = (Vibrator) getSystemService(VIBRATOR_SERVICE);
                 if (vib != null) {
                     vib.vibrate(60);
@@ -1845,17 +1840,8 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
                         "Brand: " +
                         Build.BRAND +
                         LINE_SEPARATOR +
-                        "Device: " +
-                        Build.DEVICE +
-                        LINE_SEPARATOR +
                         "Model: " +
                         Build.MODEL +
-                        LINE_SEPARATOR +
-                        "Id: " +
-                        Build.ID +
-                        LINE_SEPARATOR +
-                        "Product: " +
-                        Build.PRODUCT +
                         LINE_SEPARATOR +
                         "\n************ FIRMWARE ************\n" +
                         "SDK: " +
