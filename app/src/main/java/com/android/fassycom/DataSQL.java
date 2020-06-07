@@ -18,7 +18,7 @@ import es.dmoral.toasty.Toasty;
 
 public class DataSQL extends SQLiteOpenHelper{
     // version de la base de datos y nombre
-    private static final int basededatos_version =58;
+    private static final int basededatos_version =59;
     private static final String database = "Fassycom.db";
     //variables
     private ArrayList<Pictograma> pic = new ArrayList<>();
