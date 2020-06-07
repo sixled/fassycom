@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
     int Tamaño=0;
     int   sizecateg=0;
     Boolean pausa = false;
- boolean imagenlocal;
+    boolean imagenlocal;
     int currentposition = 0;
     int quest = 0;
     MediaPlayer mp;
@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
     Object fpicto;
     Boolean cancelrecord = false;
     Boolean startRecord = false;
+    String accionError="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,8 +147,8 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         String packageName = getApplicationContext().getPackageName();
         rutafassycom = rutaprincipal + packageName + "/Fassycom/";
         //codigo para que el usuario mande error
-        //Thread.setDefaultUncaughtExceptionHandler(this);
-        //
+        Thread.setDefaultUncaughtExceptionHandler(this);
+
         Intent intent = getIntent();
         String action = intent.getAction();
         String type = intent.getType();
@@ -189,8 +190,6 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         }
         us.close();
 
-
-
         //Adaptador de reproducion
         mRecyclePlay.setHasFixedSize(true);
         mLayaoutmangaer =new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
@@ -204,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
             @Override
             public void onLongClick(View view, int position) {
                 // si mantiene apretado sobre el pictograma de la lista de reproducion se borrara
-
+              accionError="Borrando pictograma reproducion";
                 Vibrator vib = (Vibrator) getSystemService(VIBRATOR_SERVICE);
                 if (vib != null) {
                     vib.vibrate(100);
@@ -230,6 +229,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         mRecycleView.addOnItemTouchListener(new RecyclerTouchListener(this, mRecycleView, new ClickListener() {
                     @Override
                     public void onClick(View view, int position) {
+                      accionError="Toca categoria ";
                         View bar=view.findViewById(position);
                         if(delte){
                           holdview.setVisibility(View.INVISIBLE);
@@ -245,6 +245,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
                     }
                     @Override
                     public void onLongClick(View view, int position) {
+                      accionError="Mantiene apretado categoria";
                         String tipo= mCateg.get(position).tipo;
                         String nombrex= mCateg.get(position).nombre;
                         if (tipo.equals("ninguno")) {
@@ -383,17 +384,6 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         return success;
     }
 
-    // codigo a eleminarr
-  //  @Override
- //   public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-  //      super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-   //     if (requestCode == pCode) {
-   //         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-     //       }
-    //    }
-   // }
     public Boolean createFolderApp() {
         Boolean install = false;
         String MEDIA_import = rutafassycom + "Import";
@@ -520,6 +510,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
             editarcateg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                  accionError="Edita categoria";
                     crearCategorias( nombre,position);
                 }
             });
@@ -529,11 +520,13 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
                     adb.setTitle("¿Quiere borrar Categoria: " + " " + nombre + "?");
                     adb.setIcon(android.R.drawable.ic_dialog_alert);
                     adb.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            accionError="borra categoria";
                             db=mDbHelper.getWritableDatabase();
                             mDbHelper.Deletecategoria(db, nombre, getApplicationContext());
                             mCateg.remove(position);
@@ -616,7 +609,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         button_crear_categoria.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View v) {accionError="Apreta para crear categoria";
                         texto1 = Layout.findViewById(R.id.textobjet);
                         String nombrenuevito = texto1.getText().toString();
                         String nombre = nombrenuevito.replace("'", "!");
@@ -670,7 +663,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
 
                                     db=mDbHelper.getWritableDatabase();
                                         if (modoeditar) {
-
+                                          accionError="Modifica categoria";
                                                 File foldernew = new File(rutafassycom + "Categories" + File.separator + nombre);
                                                 db.execSQL("UPDATE categorias  SET nombre='" + nombre + "' ,photo='" + fcateg + "' WHERE nombre='" + nombrecateg + "'");
                                                 db.execSQL("UPDATE item  SET categ='" + nombre+"' WHERE categ='" + nombrecateg+"' ");
@@ -704,6 +697,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
                                             if(imagenlocal){
                                              fcateg=extraimg;
                                             }
+                                          accionError="Crea categoria";
                                             db.execSQL("INSERT INTO categorias (nombre,photo) " +
                                                     "VALUES ('" + nombre + "' , '" + fcateg + "')");
                                             tenerphoto = false;
@@ -768,15 +762,19 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         gridViews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView < ? > adapterView, View view, int position, long id) {
+
                 pasos(2);
                 String source = (Long.valueOf(id)).toString();
                 int cont =   pictoGridview.size()-1;;
                 String nombreitem =pictoGridview.get(position).getNombrepic();
+                accionError="Apreta pictograma "+nombreitem;
                 String count = String.valueOf(cont);
                 if (source.equals(count)) {
                     if (!modoeditar) {
-
+                      if(!frecuente){
                         modalCreatePictogram(0,modoeditar, null);
+                      }
+
 
                     } else {
                         Toasty.warning(getApplicationContext(), "Desactive Modo editar", Toast.LENGTH_SHORT, true).show();
@@ -797,6 +795,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         gridViews.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView < ? > adapterView, View view, int position, long id) {
+              accionError="Mantiene apretado pictograma";
                 if (!frecuente) {
                     String source = (Long.valueOf(id)).toString();
                     String nombrepic =pictoGridview.get(position).getNombrepic();
@@ -823,6 +822,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
             editarcateg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    accionError="Toca para actualizar pictograma";
                     modalCreatePictogram(positionx,modoeditar, borrar);
                 }
             });
@@ -831,12 +831,14 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    accionError="Aprieta para borrar pictograma";
                     AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
                     adb.setTitle("¿Quiere borrar Pictograma: " + " " + borrar + "?");
                     adb.setIcon(android.R.drawable.ic_dialog_alert);
                     adb.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             if (item) {
+                                accionError="Borra pictograma";
                                 db=mDbHelper.getWritableDatabase();
                                 mDbHelper.DeleteItem(db, borrar, getApplicationContext(), borrar);
                                 pictoGridview.remove(source);
@@ -861,6 +863,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
             savepic.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                  accionError="Borra pictograma";
                     // mover pictograma a la categoria selecionada
                     Toasty.info(getApplicationContext(), "Seleciona   la categoria", Toast.LENGTH_SHORT, true).show();
                     seleccateg = true;
@@ -919,9 +922,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
       if(pictoPlay.size()>2){
         mRecyclePlay.smoothScrollToPosition(pictoPlay.size());
       }
-
         playauto++;
-
         sumauso++;
         db.execSQL("UPDATE  item SET uso ='" + sumauso + "' where nombre='" + nombre + "'");
         db.close();
@@ -1204,7 +1205,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                      accionError="Toca para crear  pictograma";
                         texto1 = Layout.findViewById(R.id.textobjet);
                         String nombreobtenido = texto1.getText().toString();
 
@@ -1286,13 +1287,13 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
                                             fpicto=extraimg;
                                         }
                                             if (!modoeditar) {
-
+                                              accionError="Creando pictograma";
                                                 addItem(nombrenuevo, fpicto, fileaudio);
                                                 Toasty.success(getBaseContext(), "Creado Pictograma: " + nombrenuevo, Toast.LENGTH_SHORT, true).show();
                                                 teneraudio = false;
                                                 tenerphoto = false;
                                                 pictogramashow.dismiss();
-                                            } else {
+                                            } else {  accionError="actualizando pictograma";
                                                     pictoGridview.get(positionx).setNombrepic(nombrenuevo).setFoto(fpicto).setAudio(fileaudio);
                                                     db.execSQL("UPDATE item  SET nombre='" + nombrenuevo + "',foto='" + fpicto+ "',audio='" + fileaudio + "' WHERE nombre='" + nombrex + "' ");
                                                 File itsremove = new File(String.valueOf(fotos));
@@ -1351,11 +1352,13 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
             @Override
 
             public boolean onTouch(View v, MotionEvent event) {
+              accionError="Toca para grabar pictograma";
                 boton.performClick();
                 int action = MotionEventCompat.getActionMasked(event);
                 switch (action) {
                     case (MotionEvent.ACTION_DOWN):
                         //Cuando el usuario toca el boton de grabar
+                            accionError="Aprieta grabando";
                             createFolder(MEDIA_DIRECTORYTEMP);
                             getApplicationContext();
                             Vibrator vib = (Vibrator) getSystemService(VIBRATOR_SERVICE);
@@ -1410,6 +1413,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
 
 
                     case (MotionEvent.ACTION_UP):
+                      accionError="Suelta  grabando";
                         if (!startRecord) {
                             // si suelta el boton y se cancelo reproducir sonido de canselacion;;
                             boton.setBackgroundResource(R.drawable.save_microphone);
@@ -1515,6 +1519,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
 
     }
     public void btnDelete(View view) {
+      accionError="toca para Borra lista de reproducion";
       // cuando se toca ell boton de play , vaciar las variables y actualizar adaptadores de reproducion
         if (mp != null) {
             if (!pictoPlay.isEmpty()) {
@@ -1550,6 +1555,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
 
 
     public void btnQuestion(View view) {
+      accionError="Toca para hacer pregunta ";
         quest++;
         pasos(6);
         // cuando apreta el boton de pregunat se agrega el pictograma pregunta y se actualiza adaptador de reproducion
@@ -1561,6 +1567,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
     }
 
     public void btnPlay(View view) {
+      accionError="Toca para reproducir";
         pasos(3);
         mRecyclePlay.scrollToPosition(0);
         playSound();
@@ -1653,6 +1660,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
 
     public void autoPlaySound() {
         if(modoplay){
+          accionError="Auto reproduciendo";
             if (pictoPlay != null ) {
                 pausa = false;
                 mp = new MediaPlayer();
@@ -1721,6 +1729,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
     }
 
     public void btnPause(View view) {
+      accionError="Toca para pausar ";
         pausa = true;
         if (mp != null) {
             if (mp.isPlaying()) {
@@ -1768,15 +1777,6 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         }
     }
 
-    public void copy(File src, File dst) throws IOException {
-        FileInputStream inStream = new FileInputStream(src);
-        FileOutputStream outStream = new FileOutputStream(dst);
-        FileChannel inChannel = inStream.getChannel();
-        FileChannel outChannel = outStream.getChannel();
-        inChannel.transferTo(0, inChannel.size(), outChannel);
-        inStream.close();
-        outStream.close();
-    }
 
     public Dialog splashModal() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -1808,6 +1808,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         gridextra.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView < ? > parent, View view, int position, final long id) {
+              accionError="Toca para elegir imagen extra";
                 String source = (Long.valueOf(id)).toString();
                 int number = Integer.parseInt(source) + 1;
                 String obtenernom = "img" + number;
@@ -1864,7 +1865,10 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
                         Build.VERSION.RELEASE +
                         LINE_SEPARATOR +
                         "Version APP: " +
-                        BuildConfig.VERSION_NAME;
+                        BuildConfig.VERSION_NAME+
+                        LINE_SEPARATOR +
+                        "Accion: " +
+                        accionError;
         Intent intent = new Intent(getApplicationContext(), ErrorActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("error", errorReport);
