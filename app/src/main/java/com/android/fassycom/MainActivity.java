@@ -916,7 +916,10 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         // se actualiza el adaptador de reproducion con los nuevos pictogramas tocados
         mAdapterPlay.notifyDataSetChanged();
         //al actualizarse se mueve el scroll
+      if(pictoPlay.size()>2){
         mRecyclePlay.smoothScrollToPosition(pictoPlay.size());
+      }
+
         playauto++;
 
         sumauso++;
@@ -1529,7 +1532,6 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         }
         pasos(4);
         currentposition = 0;
-        mRecyclePlay.smoothScrollToPosition(0);
         pictoPlay.clear();
         mAdapterPlay.notifyDataSetChanged();
         LinearLayout hh=findViewById(6500+currentposition);
