@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
         String packageName = getApplicationContext().getPackageName();
         rutafassycom = rutaprincipal + packageName + "/Fassycom/";
         //codigo para que el usuario mande error
-       // Thread.setDefaultUncaughtExceptionHandler(this);
+        Thread.setDefaultUncaughtExceptionHandler(this);
 
         Intent intent = getIntent();
         String action = intent.getAction();
