@@ -42,6 +42,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -79,8 +80,8 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
     GridAdapter gridAdapter;
     @BindView(R.id.viewnewcateg) RecyclerView mRecycleView;
     @BindView(R.id.viewnewPlay) RecyclerView mRecyclePlay;
-    @BindView(R.id.play) Button play;
-    @BindView(R.id.pause) Button pause;
+    @BindView(R.id.play) ImageButton play;
+    @BindView(R.id.pause) ImageButton pause;
     @BindView(R.id.menuSetting) Button menu;
     @BindView(R.id.gridview)  GridView gridViews;
     Boolean delte=false;

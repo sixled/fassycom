@@ -88,15 +88,17 @@
                 android:visibility="visible"
                 tools:visibility="visible" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttondelete"
                 android:layout_width="105dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
                 android:layout_toStartOf="@+id/buttonquestion"
-                android:background="@drawable/fsc_btn_trash"
+                android:background="@drawable/bordeleftdelete"
                 android:onClick="btnDelete"
+                android:scaleType="centerCrop"
+                android:src="@drawable/fsc_btn_trash"
                 tools:visibility="visible" />
 
             <Button
@@ -149,7 +151,7 @@
                 android:textColor="@color/White"
                 android:textSize="22sp"
                 android:visibility="visible"
-                app:fontFamily="@font/allerdisplay" />
+                app:fontFamily="@font/signika" />
 
         </RelativeLayout>
     </LinearLayout>
@@ -175,31 +177,35 @@
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp">
 
-            <Button
+            <ImageButton
                 android:id="@+id/pause"
-                android:layout_width="110dp"
-                android:layout_height="82dp"
+                android:layout_width="109dp"
+                android:layout_height="90dp"
                 android:layout_alignBottom="@+id/play"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="-1dp"
                 android:layout_marginEnd="0dp"
-                android:background="@drawable/playrecordof"
+                android:background="@drawable/bordeleft"
                 android:onClick="btnPause"
+                android:scaleType="fitXY"
+                android:src="@drawable/playrecordof"
                 android:visibility="visible"
                 tools:visibility="visible" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/play"
                 style="@style/Widget.AppCompat.Button"
-                android:layout_width="110dp"
+                android:layout_width="109dp"
                 android:layout_height="90dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="-1dp"
-                android:background="@drawable/playrecord"
+                android:background="@drawable/bordeleft"
                 android:onClick="btnPlay"
+                android:scaleType="fitXY"
+                android:src="@drawable/playrecord"
                 android:visibility="visible" />
 
             <android.support.v7.widget.RecyclerView

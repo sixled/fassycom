@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- Drop Shadow Stack -->
+    <item>
+        <shape>
+            <padding
+                android:left="1dp" />
+
+            <solid android:color="#B3B3B6" />
+
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding
+                android:left="1dp"
+                />
+
+            <solid android:color="#A3A3A5" />
+
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding
+                android:left="1dp" />
+
+            <solid android:color="#9C9C9E" />
+
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding
+                android:left="1dp" />
+
+            <solid android:color="#98989A" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding
+                android:left="1dp" />
+
+            <solid android:color="#8D8D8F" />
+
+        </shape>
+    </item>
+
+    <!-- Background -->
+    <item>
+        <shape>
+            <solid android:color="#E4E5E9" />
+        </shape>
+    </item>
+
+</layer-list>
