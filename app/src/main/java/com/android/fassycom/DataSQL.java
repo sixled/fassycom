@@ -26,7 +26,7 @@ public class DataSQL extends SQLiteOpenHelper{
     private ArrayList<CategoriaObject> categbackup=new ArrayList<>();
     private CategoriaObject[] categ=new CategoriaObject[10];
     private String MEDIA_DIRECTORY = "/Fassycom/";
-    private String path = Environment.getExternalStorageDirectory()+File.separator+"Android"+File.separator+"data"+File.separator+"com.android.fassycom";
+    private String path = Environment.getExternalStorageDirectory()+File.separator+"Android"+File.separator+"data"+File.separator+"com.app.fassycom";
     //Sentencia SQL para crear la tabla de usuario,categoria,pictograma
     private String sqlCreate = "CREATE TABLE categorias (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT,photo TEXT,base TEXT,usernom TEXT)";
     private String sqlCreate2 = "CREATE TABLE item (id INTEGER PRIMARY KEY AUTOINCREMENT,categ TEXT,nombre TEXT,audio TEXT,foto TEXT,base TEXT,uso TEXT,backup BOOLEAN)";
