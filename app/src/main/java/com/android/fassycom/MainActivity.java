@@ -1658,6 +1658,9 @@ public class MainActivity extends AppCompatActivity implements Thread.UncaughtEx
                 pausa = false;
                 mp = new MediaPlayer();
                 int number= playauto-1;
+                if(number>=pictoPlay.size()){
+                  number=pictoPlay.size()-1;
+                }
                 mRecyclePlay.scrollToPosition(number);
                     if(isnumeric(pictoPlay.get(number).audio.toString()))
                     {
