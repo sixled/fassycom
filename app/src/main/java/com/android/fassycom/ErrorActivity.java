@@ -3,7 +3,7 @@ package com.android.fassycom;
 import android.appcilsa.R;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 

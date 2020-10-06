@@ -2,20 +2,17 @@ package com.android.fassycom;
 
 import android.app.Activity;
 import android.appcilsa.R;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Switch;
-import android.widget.TextView;
 
 public class SettingMenu extends AppCompatActivity {
         Boolean rep;
