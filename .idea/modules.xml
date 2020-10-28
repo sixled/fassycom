@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="fassycom/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fassycom.iml" filepath="$PROJECT_DIR$/.idea/modules/fassycom.iml" group="fassycom" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fassycom.iml" filepath="$PROJECT_DIR$/.idea/modules/fassycom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/fassycom.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/fassycom.app.iml" />
     </modules>
   </component>
 </project>
