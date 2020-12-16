@@ -148,7 +148,7 @@
                 android:layout_toEndOf="@+id/menuSetting"
                 android:layout_toRightOf="@+id/menuSetting"
                 android:gravity="left|center_vertical"
-                android:text="FassyCom"
+                android:text="Fassycom"
                 android:textColor="@color/White"
                 android:textSize="22sp"
                 android:visibility="visible"
